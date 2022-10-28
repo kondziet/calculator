@@ -5,3 +5,24 @@ html {
 *, *::before, *::after {
     box-sizing: inherit;
 }
+
+body {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    height: 200px;
+    background-color: green;
+}
+
+.main {
+    height: 200px;
+    background-color: gray;
+}
+.footer {
+    height: 200px;
+    background-color: blue;
+}

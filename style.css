@@ -72,11 +72,11 @@ body {
     gap: 5px;
 }
 
-.key[data-key="clear"] {
+.key.clear {
     grid-column: 1/3;
 }
 
-.key[data-key="delete"] {
+.key.delete {
     grid-column: 3/5;
 }
 

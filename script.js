@@ -13,16 +13,22 @@ function appendNumber(digit) {
     if (digit === "." && currentNumber.includes(".")) {
         return
     } else if (digit === "." && currentNumber === "") {
-        currentNumber += "0"
+        currentNumber += "0."
         return
     }
 
     currentNumber += digit
 }
 
+function updateDisplay() {
+    previousNumberDisplay.textContent = previousNumber + " " + (operator === undefined ? "" : operator)
+    currentNumberDisplay.textContent = currentNumber
+}
+
 numbersBtns.forEach(button => {
     button.addEventListener("click", e => {
         const digit = e.target.textContent
         appendNumber(digit)
+        updateDisplay()
     })
 })

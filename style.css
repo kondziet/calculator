@@ -45,17 +45,17 @@ body {
     border: 1px solid black;
 }
 
-.previous-expression-display {
+.previous-number-display {
     height: 80px;
     background-color: gray;
 }
 
-.current-expression-display {
+.current-number-display {
     height: 120px;
     background-color: green;
 }
 
-.previous-expression-display, .current-expression-display {
+.previous-number-display, .current-number-display {
     display: flex;
     justify-content: flex-end;
     align-items: center;

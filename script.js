@@ -74,7 +74,7 @@ function clear() {
 }
 
 function deleteCurrentNumber() {
-    currentNumber = ""
+    currentNumber = currentNumber.slice(0, -1)
 }
 
 function updateDisplay() {

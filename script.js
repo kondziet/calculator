@@ -20,6 +20,53 @@ function appendNumber(digit) {
     currentNumber += digit
 }
 
+function performOperation(operation) {
+    if (currentNumber === "") {
+        return
+    }
+
+    if (previousNumber === "" && operator === undefined) {
+        previousNumber = currentNumber
+        operator = operation
+        currentNumber = ""
+        return
+    }
+
+    getResult()
+        
+    if (operation === "=") { 
+        previousNumber = ""   
+        operator = undefined
+    } else {
+        previousNumber = currentNumber
+        operator = operation
+        currentNumber = ""
+    }
+
+}
+
+function getResult() {
+
+    const firstOperand = Number(previousNumber)
+    const secondOperand = Number(currentNumber)
+    
+    switch (operator) {
+        case "÷":
+            currentNumber = firstOperand / secondOperand
+            break
+        case "x":
+            currentNumber = firstOperand * secondOperand
+            break
+        case "-":
+            currentNumber = firstOperand - secondOperand
+            break
+        case "+":
+            currentNumber = firstOperand + secondOperand
+            break
+    }
+
+}
+
 function updateDisplay() {
     previousNumberDisplay.textContent = previousNumber + " " + (operator === undefined ? "" : operator)
     currentNumberDisplay.textContent = currentNumber
@@ -29,6 +76,14 @@ numbersBtns.forEach(button => {
     button.addEventListener("click", e => {
         const digit = e.target.textContent
         appendNumber(digit)
+        updateDisplay()
+    })
+})
+
+operatorsBtns.forEach(button => {
+    button.addEventListener("click", e => {
+        const operation = e.target.textContent
+        performOperation(operation)
         updateDisplay()
     })
 })

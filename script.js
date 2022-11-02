@@ -67,6 +67,16 @@ function getResult() {
 
 }
 
+function clear() {
+    previousNumber = ""
+    operator = undefined
+    currentNumber = ""
+}
+
+function deleteCurrentNumber() {
+    currentNumber = ""
+}
+
 function updateDisplay() {
     previousNumberDisplay.textContent = previousNumber + " " + (operator === undefined ? "" : operator)
     currentNumberDisplay.textContent = currentNumber
@@ -86,4 +96,14 @@ operatorsBtns.forEach(button => {
         performOperation(operation)
         updateDisplay()
     })
+})
+
+clearBtn.addEventListener("click", () => {
+    clear()
+    updateDisplay()
+})
+
+deleteBtn.addEventListener("click", () => {
+    deleteCurrentNumber()
+    updateDisplay()
 })
